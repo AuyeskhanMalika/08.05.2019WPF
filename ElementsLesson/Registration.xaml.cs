@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using DataAccess;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,12 @@ namespace ElementsLesson
             user.Login = newLogin;
             user.Password = newPassword;
 
-            using ()
+            using (var context = new SecurityContext())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
+            this.Close();
         }
     }
 }

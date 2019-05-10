@@ -59,6 +59,7 @@ namespace ElementsLesson
         private void registerButtonClick(object sender, RoutedEventArgs e)
         {
             Registration registration = new Registration();
+            registration.Show();
         }
     }
 }
